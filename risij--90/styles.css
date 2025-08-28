@@ -1,0 +1,333 @@
+:root {
+    --primary-color: #6a827a; /* Sage Green */
+    --primary-hover: #566a63;
+    --background-color: #fcfcfc;
+    --surface-color: #ffffff;
+    --text-color: #333333;
+    --text-muted: #767676;
+    --border-color: #eeeeee;
+    --header-font: 'Playfair Display', serif;
+    --body-font: 'Roboto', sans-serif;
+    --border-radius: 4px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+/* --- General & Reset --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--header-font);
+    color: var(--text-color);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+ul, ol {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--primary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    color: #fff;
+    text-decoration: none;
+}
+
+/* --- Header & Navigation --- */
+.site-header {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.5rem 0;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header .logo a {
+    font-family: var(--header-font);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+}
+.site-header .logo .tagline {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--body-font);
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 0;
+}
+
+.main-nav a {
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* --- Main Content Layout --- */
+.page-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.content-area, .sidebar, .static-page {
+    background: var(--surface-color);
+}
+
+/* --- Homepage Specific --- */
+.intro {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.intro p {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-muted);
+}
+
+.articles-grid h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.articles-grid .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow);
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.card p {
+    flex-grow: 1;
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.card .read-more {
+    font-weight: 500;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.card .read-more:hover {
+    text-decoration: underline;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    padding-top: 1.2rem;
+}
+
+.sidebar .widget {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.sidebar .widget:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar .widget h3 {
+    font-size: 1.3rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar .widget ul li {
+    margin-bottom: 0.75rem;
+}
+
+.sidebar .widget ul li a {
+    color: var(--text-color);
+}
+
+.sidebar .widget.promo {
+    text-align: center;
+}
+
+/* --- Article & Static Page --- */
+.static-page, .article-content {
+    border: 1px solid var(--border-color);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+}
+
+.article-header {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.article-header h1, .static-page h1 {
+    font-size: 2.75rem;
+}
+
+.article-meta {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.article-content h2, .article-content h3,
+.static-page h2, .static-page h3 {
+    margin-top: 2.5rem;
+}
+
+.article-content ul, .article-content ol,
+.static-page ul, .static-page ol {
+    margin-left: 25px;
+}
+
+.article-content ul li, .static-page ul li {
+    list-style-type: square;
+    padding-left: 5px;
+    margin-bottom: 0.75rem;
+}
+.article-content ol li, .static-page ol li {
+    list-style-type: decimal;
+    padding-left: 5px;
+    margin-bottom: 0.75rem;
+}
+
+.cta-box {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    margin-top: 3rem;
+    border-radius: var(--border-radius);
+}
+
+.cta-box h3 {
+    margin-top: 0;
+}
+
+/* --- Footer --- */
+.site-footer {
+    background: var(--surface-color);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Design --- */
+@media (min-width: 768px) {
+    .articles-grid .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .page-content {
+        grid-template-columns: 2.5fr 1fr;
+    }
+}
+
+@media (min-width: 1200px) {
+     .articles-grid .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

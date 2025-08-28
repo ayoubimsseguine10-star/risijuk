@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact the Risij.uk Blog Team</title>
+    <meta name="description" content="Connect with the Risij.uk blog. Share your feedback, questions, or money-saving tips with our team. We're here to help.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">Risij.uk Blog</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="offers.html">Offers</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main>
+            <section class="content-page">
+                <h1>Get In Touch</h1>
+                <p>Your input is incredibly valuable to us. Whether you have a question about a recent article, a suggestion for what we should cover next, or a hot tip on a deal we've missed, we want to hear from you. Use the form below to reach out to our team.</p>
+                <p><em>Please be aware that this is a static demonstration site. The form is for visual purposes and does not submit data.</em></p>
+                
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your message! (This is a demo)');">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </section>
+        </main>
+
+        <aside>
+            <div class="widget">
+                <h3>Stay Updated</h3>
+                <p>The best way to stay in the loop with the latest offers is by bookmarking our main site and checking back regularly for daily updates!</p>
+            </div>
+            <div class="widget promo">
+                <h3>The Ultimate Deal Hub</h3>
+                <p>See all weekly offers in one place on our main site. Updated daily!</p>
+                <a href="https://risij.uk" target="_blank" class="btn">Go to Risij.uk</a>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="index.html">Home</a> |
+                <a href="offers.html">Offers</a> |
+                <a href="about.html">About</a> |
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2025 Risij.uk – All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

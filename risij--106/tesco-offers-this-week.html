@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 03: Tesco Clubcard | Risij.uk Savings OS</title>
+    <meta name="description" content="User guide for the Tesco offers this week. This protocol details the mandatory use of the Clubcard API to access preferential pricing.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Risij.uk//Blog_OS</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="offers.html">All Modules</a></li>
+                    <li><a href="about.html">System Specs</a></li>
+                    <li><a href="contact.html">Data Input</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="main-content">
+            <article class="full-article">
+                <header>
+                    <h1>Module 03: Tesco Clubcard User Guide</h1>
+                    <div class="article-meta">
+                        <span>Last Updated: Nov 01, 2024</span>
+                        <span>Protocol ID: TES-03</span>
+                    </div>
+                </header>
+                
+                <p>This protocol addresses the Tesco retail system. Failure to use a Clubcard results in the user paying an elevated, non-standard price. The "Clubcard Price" is the baseline price; all other prices are user-error penalties. This module ensures access to the baseline price for all <a href="https://risij.uk/tesco-offers-this-week" target="_blank">Tesco offers this week</a>.</p>
+
+                <h2>Primary Directive: Authenticate with Clubcard</h2>
+                <p>The Tesco system operates on a dual-pricing model. To access the standard pricing tier, user authentication via a Clubcard (physical or digital) at the point-of-sale is mandatory. Non-authentication defaults the user to a higher pricing tier.</p>
+                
+                <h3>Execution Protocol: 3 Steps</h3>
+                <ol>
+                    <li><strong>Mandatory Scan:</strong> The Clubcard API must be interfaced with at every transaction conclusion. This action is non-negotiable and forms the foundation of this protocol.</li>
+                    <li><strong>Scan for Price Anomalies (Yellow Labels):</strong> Throughout the retail environment, scan for items marked with yellow "reduced" labels. These represent items nearing their data expiration and are subject to aggressive, temporary price reductions. Combining a reduced item with a Clubcard authentication is an optimal transaction.</li>
+                    <li><strong>Perform Cross-System Analysis:</strong> A Clubcard Price represents the baseline for the Tesco system, but not necessarily for the entire market. A quick data query against the <a href="sainsburys-offer-this-week.html">Sainsbury's offers this week</a> is recommended to confirm global price optimality.</li>
+                </ol>
+
+                <h2>System-Wide Application</h2>
+                <p>The Clubcard authentication protocol is not limited to the grocery sub-system. It applies to all assets sold by Tesco, including apparel (<code>F&F</code>), homewares, and electronics. Apply the protocol universally to maximize value extraction.</p>
+
+                <div class="cta-box">
+                    <h3>Query This Week's Clubcard Prices</h3>
+                    <p>A live data feed of all items currently subject to Clubcard preferential pricing is available on the Risij.uk mainframe. Sync this data before your mission.</p>
+                    <a href="https://risij.uk/tesco-offers-this-week" target="_blank" class="btn">Download Intel</a>
+                </div>
+            </article>
+        </div>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h3>Related Modules</h3>
+                <ul class="widget-list">
+                    <li><a href="aldi-offers-next-week.html">Module 01: Aldi Specialbuys</a></li>
+                    <li><a href="lidl-offers-this-week.html">Module 02: Lidl Middle Aisle</a></li>
+                    <li><a href="waitrose-offers-this-week.html">Module 09: myWaitrose</a></li>
+                </ul>
+            </div>
+            <div class="widget promo">
+                <h3>Access Mainframe</h3>
+                <p>Interface directly with the Risij.uk mainframe for a real-time, comprehensive data feed of all UK supermarket offers.</p>
+                <a href="https://risij.uk" target="_blank" class="btn">Connect to Risij.uk</a>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Risij.uk // Savings_OS – All Rights Reserved. Execution protocols are subject to change.</p>
+        </div>
+    </footer>
+</body>
+</html>

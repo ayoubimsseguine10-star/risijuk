@@ -1,0 +1,395 @@
+/* ---=== Google Font Import ===--- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Merriweather:wght@400;700&display=swap');
+
+/* ---=== Clean & Minimal Theme Variables (2025) ===--- */
+:root {
+    --primary-color: #007BFF; /* A friendly, trustworthy blue */
+    --background-color: #f8f9fa; /* Light grey background */
+    --surface-color: #ffffff; /* White for cards and surfaces */
+    --text-color: #212529; /* Dark grey for text */
+    --muted-text-color: #6c757d;
+    --border-color: #dee2e6;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Merriweather', serif;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ---=== General Styles ===--- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; }
+h3 { font-size: 1.4rem; color: var(--primary-color); }
+p { margin-bottom: 1.5rem; }
+
+/* ---=== Header & Navigation ===--- */
+.site-header {
+    background-color: var(--surface-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.logo:hover {
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.main-nav a {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    color: var(--muted-text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.main-nav a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.main-nav a.active {
+    color: var(--primary-color);
+}
+
+/* ---=== Main Content Layout ===--- */
+.main-content-area {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 50px 20px;
+}
+
+@media (min-width: 992px) {
+    .main-content-area {
+        grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr);
+    }
+}
+
+/* ---=== Homepage Specifics ===--- */
+.hero {
+    text-align: center;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.hero h1 {
+    margin-bottom: 1rem;
+}
+.hero p {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--muted-text-color);
+    font-size: 1.1rem;
+}
+
+.articles-grid h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card p {
+    flex-grow: 1;
+    color: var(--muted-text-color);
+    font-size: 0.95rem;
+}
+
+.read-more {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    align-self: flex-start;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* ---=== Sidebar ===--- */
+.sidebar .widget {
+    background: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.sidebar h4 {
+    font-size: 1.1rem;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.sidebar ul {
+    list-style: none;
+}
+.sidebar ul li {
+    margin-bottom: 0.75rem;
+}
+.sidebar ul li a {
+    font-weight: bold;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+}
+
+.sidebar .cta-widget {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+}
+.sidebar .cta-widget p {
+    color: white;
+    font-size: 0.95rem;
+}
+
+/* ---=== Article & Static Page Styles ===--- */
+.full-article, .page-content {
+    background-color: var(--surface-color);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow);
+}
+
+.article-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+.article-header h1 {
+    font-size: 2.5rem;
+}
+
+.article-meta {
+    font-size: 0.85rem;
+    color: var(--muted-text-color);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+}
+
+.full-article h2, .page-content h2 {
+    margin-top: 2.5rem;
+    border-bottom: none;
+}
+
+.full-article ul, .page-content ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+}
+.full-article ul li, .page-content ul li {
+    padding-left: 1.75rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+.full-article ul li::before, .page-content ul li::before {
+    content: '✓';
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+p.intro {
+    font-size: 1.25rem;
+    color: var(--muted-text-color);
+}
+
+.contact-email {
+    font-size: 1.1rem;
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid var(--border-color);
+}
+
+.tip-box {
+    background-color: #e7f3ff;
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+.tip-box p {
+    margin: 0;
+}
+
+/* ---=== CTA (Call to Action) ===--- */
+.cta-box {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--primary-color);
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    text-decoration: none;
+}
+
+
+/* ---=== Footer ===--- */
+.site-footer {
+    background: var(--surface-color);
+    color: var(--muted-text-color);
+    text-align: center;
+    padding: 2.5rem 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+.site-footer a {
+    color: var(--muted-text-color);
+    margin: 0 1rem;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+}
+
+.site-footer a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.site-footer .footer-links {
+    margin-bottom: 1.5rem;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* ---=== Responsive Adjustments ===--- */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .main-nav a {
+        padding: 6px 10px;
+    }
+
+    h1 { font-size: 2.2rem; }
+    .article-header h1 { font-size: 2rem; }
+    h2 { font-size: 1.7rem; }
+    
+    .full-article, .page-content {
+        padding: 1.5rem;
+    }
+}

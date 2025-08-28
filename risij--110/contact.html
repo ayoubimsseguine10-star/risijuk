@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Risij.uk Blog</title>
+    <meta name="description" content="Get in touch with the Risij.uk blog team. We'd love to hear your feedback, questions, or savings tips.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="site-title">Risij.uk Blog</a>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="offers.html">All Guides</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-content">
+            <header class="article-header">
+                <h1>Get In Touch.</h1>
+                <p class="article-meta">We'd love to hear from you.</p>
+            </header>
+            
+            <div class="article-body">
+                <h3>Have a question or a tip?</h3>
+                <p>If you have any feedback about our guides, a savings tip you'd like to share, or a general question, please feel free to send us an email. We're always happy to help.</p>
+                <p>The best way to reach us is at:</p>
+                <p><a href="mailto:contact@risij.uk"><strong>contact@risij.uk</strong></a></p>
+                <p>We do our best to reply to every email within a couple of business days.</p>
+    
+                <form class="contact-form" action="mailto:contact@risij.uk" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Let us know what's on your mind..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send via Email App</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 <a href="https://risij.uk" target="_blank">Risij.uk</a>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

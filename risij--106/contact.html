@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Input | Risij.uk Savings OS</title>
+    <meta name="description" content="Submit data, feedback, or savings intel to the Risij.uk OS team. Help us improve our savings protocols.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Risij.uk//Blog_OS</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="offers.html">All Modules</a></li>
+                    <li><a href="about.html">System Specs</a></li>
+                    <li><a href="contact.html" class="active">Data Input</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="main-content">
+            <section class="content-page">
+                <h1>Data Input Terminal</h1>
+                <p>This terminal is for user-submitted data. If you have identified a new savings exploit, have feedback on an existing protocol, or wish to report a system anomaly, please input the data below.</p>
+                <p><code>SYSTEM_NOTE: This is a static HTML demonstration. The form below is for visual purposes and will not transmit data.</code></p>
+                
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('DATA PACKET RECEIVED (DEMO)');">
+                    <label for="user_id">User ID (Name)</label>
+                    <input type="text" id="user_id" name="user_id" required>
+                    
+                    <label for="email_address">Return Address (Email)</label>
+                    <input type="email" id="email_address" name="email_address" required>
+                    
+                    <label for="data_packet">Data Packet (Message)</label>
+                    <textarea id="data_packet" name="data_packet" required></textarea>
+                    
+                    <button type="submit" class="btn">Transmit Data</button>
+                </form>
+            </section>
+        </div>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h3>Querying Live Data?</h3>
+                <p>For real-time offer data, direct connection to the Risij.uk mainframe is recommended. This terminal is for feedback and strategic input only.</p>
+            </div>
+            <div class="widget promo">
+                <h3>Access Mainframe</h3>
+                <p>Interface directly with the Risij.uk mainframe for a real-time, comprehensive data feed of all UK supermarket offers.</p>
+                <a href="https://risij.uk" target="_blank" class="btn">Connect to Risij.uk</a>
+            </div>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Risij.uk // Savings_OS – All Rights Reserved. Execution protocols are subject to change.</p>
+        </div>
+    </footer>
+</body>
+</html>

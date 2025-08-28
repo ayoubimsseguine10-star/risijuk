@@ -1,0 +1,399 @@
+
+/* === Google Fonts Import === */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap');
+
+/* === CSS Variables (2025 Classic & Scholarly Theme) === */
+:root {
+    --primary-color: #800020; /* Deep Scholarly Maroon */
+    --accent-color: #B8860B; /* Dark Goldenrod for subtle highlights */
+    --bg-color: #FDFBF7; /* Parchment Off-White */
+    --surface-color: #FFFFFF;
+    --text-color: #3D2C24; /* Dark, almost-black Brown */
+    --heading-color: #333333;
+    --border-color: #EAE3D9;
+    --shadow-color: rgba(61, 44, 36, 0.07);
+    --shadow-hover: rgba(61, 44, 36, 0.12);
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Roboto', sans-serif;
+    --container-width: 1140px;
+    --border-radius: 8px;
+}
+
+/* === Global Styles === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--heading-color);
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.1rem; }
+h3 { font-size: 1.5rem; }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--border-radius);
+}
+
+/* === Utility Classes === */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* === Header & Navigation === */
+.site-header {
+    background-color: var(--surface-color);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--heading-color);
+}
+
+.site-title:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    padding: 0;
+}
+
+.main-nav a {
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--text-color);
+    padding-bottom: 0.5rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--primary-color);
+}
+.main-nav a:hover::after, .main-nav a.active::after {
+    width: 100%;
+}
+
+/* === Main Layout === */
+.main-content {
+    padding: 4rem 0;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 992px) {
+    .main-layout {
+        grid-template-columns: 1fr 300px;
+    }
+}
+
+/* === Homepage Intro === */
+.intro-section {
+    padding: 3rem 0;
+    margin-bottom: 3.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.intro-section h1 {
+    margin-bottom: 1rem;
+}
+
+.intro-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #555;
+}
+.intro-section a {
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--border-color);
+}
+.intro-section a:hover {
+    text-decoration-color: var(--primary-color);
+}
+
+/* === Articles Grid === */
+.articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.article-card {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 10px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-hover);
+}
+
+.card-content {
+    padding: 1.75rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+}
+
+.card-content p {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.read-more-btn {
+    align-self: flex-start;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--primary-color);
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+    text-decoration: none;
+    color: var(--accent-color);
+    transform: translateX(4px);
+}
+
+/* === Sidebar === */
+.sidebar-widget {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.widget-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    font-family: var(--font-heading);
+}
+
+.sidebar-widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-widget ul li {
+    margin-bottom: 0.75rem;
+}
+
+.sidebar-widget ul a {
+    font-weight: 500;
+}
+
+/* === Article Page === */
+.full-article {
+    background-color: var(--surface-color);
+    padding: 2.5rem 3rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.article-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+.article-header h1 {
+    font-size: 2.6rem;
+}
+
+.article-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 1rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.article-content h2, .article-content h3 {
+    margin-top: 2.5rem;
+}
+
+.article-content p, .article-content ul {
+    margin-bottom: 1.5rem;
+}
+
+.cta-section {
+    background-color: var(--bg-color);
+    padding: 2rem;
+    margin-top: 3rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.cta-section p {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* === Sub-Pages (Offers, About, Contact) === */
+.page-content {
+    background-color: var(--surface-color);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.page-content p {
+    margin-bottom: 1.5rem;
+}
+
+.offer-list {
+    list-style: none;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+.offer-list li {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
+}
+.offer-list li:last-child {
+    border-bottom: none;
+}
+.offer-list li:hover {
+    background-color: var(--bg-color);
+}
+.offer-list a {
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: block;
+}
+
+/* === Footer === */
+.site-footer {
+    background-color: #f1f1f1;
+    color: #555;
+    padding: 3rem 0;
+    margin-top: 4rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    padding: 0;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.copyright {
+    font-size: 0.9rem;
+}

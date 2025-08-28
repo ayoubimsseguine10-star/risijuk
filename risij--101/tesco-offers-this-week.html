@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesco This Week: Optimizing the Clubcard API</title>
+    <meta name="description" content="Optimize your savings by leveraging the Tesco Clubcard API. This guide explains how to query the Tesco offers this week for maximum discount returns.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="site-title-link"><h1 class="site-title">RISIJ.UK [TERMINAL]</h1></a>
+            <p class="site-tagline">// PARSING WEEKLY SAVINGS DATA_</p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">//_ROOT</a></li>
+                    <li><a href="offers.html">//_DATA_FEEDS</a></li>
+                    <li><a href="about.html">//_README</a></li>
+                    <li><a href="contact.html">//_UPLINK</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-grid">
+        <main class="main-content">
+            <article class="page-content">
+                <header class="page-header">
+                    <h1>Tesco This Week: Optimizing the Clubcard API</h1>
+                    <p class="article-meta">LOG_DATE: 26.07.2024 | ANALYSIS_TYPE: API Optimization</p>
+                </header>
+                <div class="article-content">
+                    <p>The Tesco Clubcard system should be treated as an API (Application Programming Interface) for discounts. Proper interaction with this API, in conjunction with the live <a href="https://risij.uk/tesco-offers-this-week" target="_blank" rel="noopener noreferrer">Tesco offers this week</a> data stream, can be systematically optimized for a high rate of return on expenditure.</p>
+                    
+                    <h2>API Call: The Clubcard Scan</h2>
+                    <p>The fundamental API call is the scan of your Clubcard at checkout. This call passes your user token to the Tesco system, which then returns a response in the form of "Clubcard Prices." Executing this call on every transaction is mandatory for any level of system optimization.</p>
+                    
+                    <h3>Optimization Parameters</h3>
+                    <ol>
+                        <li><strong>Authentication (The Golden Rule):</strong> Ensure your authentication token (Clubcard) is passed with every transaction. Failure to authenticate results in a 100% loss of potential savings for that session.</li>
+                        <li><strong>Pre-fetch Personalized Endpoints:</strong> The Tesco app contains user-specific endpoints (coupons). These must be pre-fetched and activated before initiating a session (shopping trip) to enable stacked discounts.</li>
+                        <li><strong>Query the Data Stream:</strong> Utilize the Risij.uk feed to get a complete list of all active Clubcard Price promotions. Build your shopping list (your payload) based on this data to maximize the discount values returned by the API.</li>
+                        <li><strong>System-wide Benchmarking:</strong> To ensure the Clubcard API provides the best return, benchmark its offers against other systems. A regular check of the <a href="https://risij.uk/sainsburys-offer-this-week" target="_blank" rel="noopener noreferrer">Sainsbury's Nectar API</a> provides a necessary point of comparison for key items.</li>
+                    </ol>
+
+                    <div class="cta-section">
+                        <p>Ready to query the API? Access the full list of Tesco Clubcard Prices and promotions.</p>
+                        <a href="https://risij.uk/tesco-offers-this-week" target="_blank" rel="noopener noreferrer" class="cta-link">QUERY_TESCO_API &gt;</a>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h4 class="widget-title">// Cross_Reference_</h4>
+                <ul class="widget-list">
+                    <li><a href="aldi-offers-next-week.html">Aldi: Pre-caching Guide</a></li>
+                    <li><a href="lidl-offers-this-week.html">Lidl: Packet Analysis</a></li>
+                    <li><a href="index.html">Return to //_ROOT</a></li>
+                </ul>
+            </div>
+             <div class="widget">
+                <h4 class="widget-title">// PRIMARY_DATA_SOURCE</h4>
+                <p class="promo-text">The raw, real-time data stream is located at the primary node: <a href="https://risij.uk" target="_blank" rel="noopener noreferrer">Risij.uk</a>. All weekly offer data is aggregated there for direct access and processing.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-widgets">
+                 <div class="footer-widget">
+                    <h4>// Directory_</h4>
+                    <ul>
+                        <li><a href="index.html">./_ROOT</a></li>
+                        <li><a href="offers.html">./_DATA_FEEDS</a></li>
+                        <li><a href="about.html">./_README</a></li>
+                        <li><a href="contact.html">./_UPLINK</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>// Ancillary_Feeds_</h4>
+                    <ul>
+                       <li><a href="https://risij.uk/costco-uk-offers" target="_blank" rel="noopener noreferrer">COSTCO_BULK_DATA</a></li>
+                       <li><a href="https://risij.uk/farmfoods-offers-this-week" target="_blank" rel="noopener noreferrer">FARMFOODS_FREEZER_LOGS</a></li>
+                       <li><a href="https://risij.uk/waitrose-offers-this-week" target="_blank" rel="noopener noreferrer">WAITROSE_PREMIUM_CACHE</a></li>
+                       <li><a href="https://risij.uk/spar-offers-next-week" target="_blank" rel="noopener noreferrer">SPAR_LOCAL_NODES</a></li>
+                    </ul>
+                </div>
+            </div>
+           <p class="copyright">SYSTEM_STATUS: ONLINE | &copy; 2025 Risij.uk | All data streams operational.</p>
+        </div>
+    </footer>
+</body>
+</html>

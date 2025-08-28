@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldi Next Week: Pre-caching the Specialbuy Queue</title>
+    <meta name="description" content="A data-driven guide to the Aldi offers next week. Learn how to pre-cache the Specialbuy queue to optimize your acquisition strategy for high-value items.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="site-title-link"><h1 class="site-title">RISIJ.UK [TERMINAL]</h1></a>
+            <p class="site-tagline">// PARSING WEEKLY SAVINGS DATA_</p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">//_ROOT</a></li>
+                    <li><a href="offers.html">//_DATA_FEEDS</a></li>
+                    <li><a href="about.html">//_README</a></li>
+                    <li><a href="contact.html">//_UPLINK</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-grid">
+        <main class="main-content">
+            <article class="page-content">
+                <header class="page-header">
+                    <h1>Aldi Next Week: Pre-caching the Specialbuy Queue</h1>
+                    <p class="article-meta">LOG_DATE: 28.07.2024 | ANALYSIS_TYPE: Predictive Acquisition</p>
+                </header>
+                <div class="article-content">
+                    <p>Acquisition of Aldi Specialbuys is a resource-intensive operation. A reactive approach results in high failure rates. Optimal performance is achieved by pre-caching the item queue from the <a href="https://risij.uk/aldi-offers-next-week" target="_blank" rel="noopener noreferrer">Aldi offers next week</a> data stream, allowing for strategic planning before assets are deployed to the store floor.</p>
+                    
+                    <h2>Specialbuy Queue: A Volatile Data Structure</h2>
+                    <p>Aldi's Specialbuy system operates as a FIFO (First-In, First-Out) queue with a limited buffer size. Items enter the system on Thursdays and Sundays and are rapidly dequeued by consumers. The high demand and low supply create significant data volatility. Predictive analysis is therefore critical.</p>
+                    
+                    <h3>Optimization Algorithm</h3>
+                    <ol>
+                        <li><strong>Data Ingestion:</strong> Ingest the upcoming Aldi leaflet data from the Risij.uk feed at the start of the week. This is your raw dataset.</li>
+                        <li><strong>Requirement Filtering:</strong> Parse the dataset against a predefined list of required assets. This filtering eliminates low-priority items and reduces computational overhead (i.e., impulse buying).</li>
+                        <li><strong>Cross-Stream Verification:</strong> Before finalizing your target list, execute a query against parallel data streams. Verifying against the <a href="https://risij.uk/lidl-offers-this-week" target="_blank" rel="noopener noreferrer">Lidl offers this week</a> ensures your chosen asset provides maximum value relative to the market.</li>
+                        <li><strong>Execution:</strong> Deploy to the physical store at an optimal time (e.g., store opening on drop day) to execute the acquisition with the highest probability of success.</li>
+                    </ol>
+
+                    <div class="cta-section">
+                        <p>Begin your analysis. Access the raw data for next week's Aldi offers now.</p>
+                        <a href="https://risij.uk/aldi-offers-next-week" target="_blank" rel="noopener noreferrer" class="cta-link">FETCH_ALDI_DATA_STREAM &gt;</a>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h4 class="widget-title">// Cross_Reference_</h4>
+                <ul class="widget-list">
+                    <li><a href="lidl-offers-this-week.html">Lidl: Packet Analysis</a></li>
+                    <li><a href="tesco-offers-this-week.html">Tesco: Clubcard API</a></li>
+                    <li><a href="index.html">Return to //_ROOT</a></li>
+                </ul>
+            </div>
+             <div class="widget">
+                <h4 class="widget-title">// PRIMARY_DATA_SOURCE</h4>
+                <p class="promo-text">The raw, real-time data stream is located at the primary node: <a href="https://risij.uk" target="_blank" rel="noopener noreferrer">Risij.uk</a>. All weekly offer data is aggregated there for direct access and processing.</p>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-widgets">
+                 <div class="footer-widget">
+                    <h4>// Directory_</h4>
+                    <ul>
+                        <li><a href="index.html">./_ROOT</a></li>
+                        <li><a href="offers.html">./_DATA_FEEDS</a></li>
+                        <li><a href="about.html">./_README</a></li>
+                        <li><a href="contact.html">./_UPLINK</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>// Ancillary_Feeds_</h4>
+                    <ul>
+                       <li><a href="https://risij.uk/costco-uk-offers" target="_blank" rel="noopener noreferrer">COSTCO_BULK_DATA</a></li>
+                       <li><a href="https://risij.uk/farmfoods-offers-this-week" target="_blank" rel="noopener noreferrer">FARMFOODS_FREEZER_LOGS</a></li>
+                       <li><a href="https://risij.uk/waitrose-offers-this-week" target="_blank" rel="noopener noreferrer">WAITROSE_PREMIUM_CACHE</a></li>
+                       <li><a href="https://risij.uk/spar-offers-next-week" target="_blank" rel="noopener noreferrer">SPAR_LOCAL_NODES</a></li>
+                    </ul>
+                </div>
+            </div>
+           <p class="copyright">SYSTEM_STATUS: ONLINE | &copy; 2025 Risij.uk | All data streams operational.</p>
+        </div>
+    </footer>
+</body>
+</html>
