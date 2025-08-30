@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risij.uk Blog | Your Go-To for Amazing Supermarket Deals!</title>
+    <meta name="description" content="Hey, smart shopper! Get the tea on the hottest deals from Lidl, Aldi, Tesco & more. Let's make saving money fun and fabulous with Risij.uk!">
+    <meta name="keywords" content="supermarket deals, UK offers, grocery savings, Risij.uk, Aldi deals, Tesco offers, Lidl finds">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --surface-color: #f8f9fa;
+            --primary-color: #835ec9;
+            --primary-hover: #6c4ab5;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border-color: #dee2e6;
+            --font-main: 'Poppins', sans-serif;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --border-radius: 8px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--text-primary); }
+        h2 { font-size: 2.25rem; color: var(--primary-color); text-align: center; margin-bottom: 3rem;}
+        h3 { font-size: 1.4rem; color: var(--text-primary); }
+
+        p { margin-bottom: 1.25rem; color: var(--text-secondary); max-width: 65ch; }
+        a { color: var(--primary-color); text-decoration: none; transition: color 0.2s ease-in-out; }
+        a:hover { color: var(--primary-hover); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .page-content-section { display: none; animation: fadeIn 0.5s ease-in-out; }
+        .page-content-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- Header & Nav --- */
+        .site-header {
+            background-color: var(--bg-color);
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); }
+        .logo a:hover { color: var(--text-primary); }
+        .main-nav ul { list-style: none; display: flex; gap: 1.5rem; }
+        .main-nav a { font-weight: 600; font-size: 1rem; cursor: pointer; }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 5rem 1rem;
+            background-color: var(--surface-color);
+        }
+        .hero p { margin-left: auto; margin-right: auto; }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- Blog Grid --- */
+        .blog-section { padding: 5rem 0; }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        .card h3 { margin-bottom: 0.5rem; }
+        .card-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        /* --- About Section --- */
+        .about-section {
+            padding: 5rem 1rem;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* --- Footer --- */
+        .site-footer {
+            background-color: var(--surface-color);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <p class="logo"><a href="https://risij.uk">Risij.uk</a></p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a data-page="home">Home</a></li>
+                    <li><a data-page="about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="page-content-section">
+            <div class="hero">
+                <div class="container">
+                    <h1>Slay Your Grocery Bills, Queen!</h1>
+                    <p>OMG, you guys! Welcome to your new fave spot for scoring the most epic deals across the UK. We're talking major savings that'll leave you with more cash for, like, important stuff. You ready to be a total savings superstar? Let's do this!</p>
+                    <a href="https://risij.uk" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Visit Main Site</a>
+                </div>
+            </div>
+
+            <section class="blog-section">
+                <div class="container">
+                    <h2>This Week's Hottest Deals!</h2>
+                    <div class="blog-grid">
+                        <article class="card">
+                            <h3>Aldi's Next-Level Deals</h3>
+                            <p>Get ready, bestie! Aldi is dropping some fire deals next week. You literally can't miss this glow-up for your pantry.</p>
+                            <a href="https://risij.uk/aldi-offers-next-week" target="_blank" rel="noopener noreferrer" class="card-link">Spill the Tea &rarr;</a>
+                        </article>
+                        <article class="card">
+                            <h3>ASDA is Serving Savings</h3>
+                            <p>Hold up—ASDA's offers are giving what they're supposed to give! We're talking main character energy for your shopping cart.</p>
+                            <a href="https://risij.uk/asda-offers-this-week" target="_blank" rel="noopener noreferrer" class="card-link">Check the Vibe &rarr;</a>
+                        </article>
+                        <article class="card">
+                            <h3>Co-op's Community Goodness</h3>
+                            <p>Okay, so Co-op's deals are not only a vibe, but they're also, like, totally wholesome. We love to see it!</p>
+                            <a href="https://risij.uk/co-op-offers-this-week" target="_blank" rel="noopener noreferrer" class="card-link">Get the Scoop &rarr;</a>
+                        </article>
+                        <article class="card">
+                            <h3>Costco: Go Big or Go Home</h3>
+                            <p>Costco is that girl when it comes to bulk buying. Stock up and live your most abundant life. Period.</p>
+                            <a href="https://risij.uk/costco-uk-offers" target="_blank" rel="noopener noreferrer" class="card-link">Unlock VIP Status &rarr;</a>
+                        </article>
+                        <article class="card">
+                            <h3>Farmfoods' Frozen Finds</h3>
+                            <p>Don't sleep on Farmfoods! Their frozen food game is, like, so on point. It's a lifesaver, for real.</p>
+                            <a href="https://risij.uk/farmfoods-offers-this-week" target="_blank" rel="noopener noreferrer" class="card-link">Chill Out Here &rarr;</a>
+                        </article>
+                        <article class="card">
+                            <h3>Lidl's Low-Key Bops</h3>
+                            <p>Lidl's middle aisle is where it's AT. We've got the 411 on all the hidden gems you're about to be obsessed with.</p>
+                            <a href="https://risij.uk/lidl-offers-this-week" target="_blank" rel="noopener noreferrer" class="card-link">Find Your Faves &rarr;</a>
+                        </article>
+                        <article class="card">
+                            <h3>Morrisons' Market Fresh</h3>
+                            <p>Fresh finds and fab prices? That's the Morrisons way. Your kitchen is about to get a serious upgrade!</p>
+                            <a href="https://risij.uk/morrisons-offers-this-week" target="_blank" rel="noopener noreferrer" class="card-link">Get Fresh Deals &rarr;</a>
+                        </article>
+                        <article class="card">
+                            <h3>Iceland's Coolest Offers</h3>
+                            <p>Manifesting amazing meals is easy with Iceland's deals. Seriously, their offers are beyond cool.</p>
+                            <a href="https://risij.uk/iceland-offers-this-week" target="_blank" rel="noopener noreferrer" class="card-link">Break the Ice &rarr;</a>
+                        </article>
+                        <article class="card">
+                            <h3>SPAR's Speedy Savings</h3>
+                            <p>For those "oops, I forgot the milk" moments, SPAR has got your back with deals that are just, like, *chef's kiss*.</p>
+                            <a href="https://risij.uk/spar-offers-next-week" target="_blank" rel="noopener noreferrer" class="card-link">Grab & Go &rarr;</a>
+                        </article>
+                        <article class="card">
+                            <h3>Sainsbury's Chic Steals</h3>
+                            <p>Living your best life on a budget is easy with Sainsbury's. Their deals are boujee and so, so good.</p>
+                            <a href="https://risij.uk/sainsburys-offer-this-week" target="_blank" rel="noopener noreferrer" class="card-link">Taste the Future &rarr;</a>
+                        </article>
+                        <article class="card">
+                            <h3>Tesco's Timeless Treats</h3>
+                            <p>Tesco is a whole mood. Their offers are, like, always on point. Every little helps, you know?</p>
+                            <a href="https://risij.uk/tesco-offers-this-week" target="_blank" rel="noopener noreferrer" class="card-link">Add to Cart &rarr;</a>
+                        </article>
+                         <article class="card">
+                            <h3>Waitrose's Luxe for Less</h3>
+                            <p>Treat yourself! Waitrose makes it easy to add a little sparkle to your week without breaking the bank. It's giving... affordable luxury.</p>
+                            <a href="https://risij.uk/waitrose-offers-this-week" target="_blank" rel="noopener noreferrer" class="card-link">Indulge Here &rarr;</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="about" class="page-content-section">
+             <div class="container about-section">
+                <h2>About Us? It's About YOU!</h2>
+                <p>Heyyyy! So, like, we're basically your new shopping BFF. Our mission is to make sure you're always in the know about the absolute best supermarket deals. We do the work so you can focus on being the amazing, money-saving icon you were born to be.</p>
+                <p>We believe saving money shouldn't be a drag. It should be fun, empowering, and honestly, a total slay. Stick with us, and you'll never miss a chance to make your budget stretch in the most fabulous way possible. Let's get this bread (for less)!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Risij.uk. All rights reserved. Slaying savings all day, every day!</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.page-content-section');
+            const navLinks = document.querySelectorAll('.main-nav a');
+
+            function showPage(pageId) {
+                sections.forEach(section => {
+                    if (section.id === pageId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+                window.scrollTo(0, 0);
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const pageId = link.getAttribute('data-page');
+                    showPage(pageId);
+                });
+            });
+
+            // Show the home page by default
+            showPage('home');
+        });
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

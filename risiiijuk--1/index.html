@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risij.uk Blog | Your Go-To for UK Supermarket Deals, Eh?</title>
+    <meta name="description" content="Get the real scoop on weekly offers from Lidl, Tesco, ASDA, and more. Risij.uk helps you save some serious loonies on your groceries.">
+    <meta name="keywords" content="UK supermarket offers, grocery deals, saving money, Lidl offers, Tesco Clubcard, ASDA deals, Risij.uk">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --surface-color: #ffffff;
+            --primary-color: #3498db; /* A friendly, modern blue */
+            --primary-hover-color: #2980b9;
+            --text-color: #333333;
+            --text-muted-color: #6c757d;
+            --border-color: #e0e0e0;
+            --heading-font: 'Roboto', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --border-radius: 8px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--body-font);
+            line-height: 1.7;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-hover-color);
+            text-decoration: none;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.25rem;
+            color: #2c3e50;
+        }
+        
+        h1 { font-size: clamp(2rem, 5vw, 3rem); }
+        h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+        h3 { font-size: 1.25rem; }
+
+        .header {
+            background-color: var(--surface-color);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title a {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-muted-color);
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease-in-out;
+        }
+        .nav a:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .page { display: none; padding: 2rem 0; }
+        #home { display: block; padding-top: 0; }
+        .page:target ~ #home { display: none; }
+        .page:target { display: block; animation: fadeIn 0.5s ease-in-out; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        @media (min-width: 992px) {
+            .layout-grid {
+                grid-template-columns: 3fr 1fr;
+            }
+        }
+        
+        main, .sidebar-widget, .page-content {
+            background-color: var(--surface-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+        
+        .hero-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-section h1 { margin-bottom: 1rem; color: #2c3e50; }
+
+        .hero-section p {
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        .articles-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .articles-list { grid-template-columns: 1fr 1fr; }
+        }
+        
+        .article-preview {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .article-preview:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .article-preview-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-preview h2 { font-size: 1.25rem; margin-top: 0; margin-bottom: 0.5rem; }
+        .article-preview p { margin-bottom: 1.5rem; color: var(--text-muted-color); flex-grow: 1; }
+        .article-preview .btn-primary { margin-top: auto; }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-hover-color);
+            transform: translateY(-2px);
+            color: #fff;
+        }
+        
+        aside { position: sticky; top: 120px; }
+        
+        .sidebar-widget h3 {
+            font-size: 1.1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .sidebar-widget ul { list-style: none; }
+        .sidebar-widget li { margin-bottom: 0.75rem; }
+        .sidebar-widget li a { font-weight: 700; }
+        
+        .footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer a { color: var(--primary-color); }
+        .footer a:hover { color: #fff; }
+        
+        .page-header {
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted-color);
+        }
+        
+        .article-header { margin-bottom: 2rem; }
+        .article-meta { font-size: 0.9rem; color: var(--text-muted-color); margin-bottom: 2rem; }
+        
+        .article-content h2, .article-content h3 { margin-top: 2.5rem; }
+        .article-content p, .article-content ul { margin-bottom: 1.25rem; }
+        .article-content ul { list-style-position: inside; padding-left: 0.5rem; }
+        
+        .cta-box {
+            background-color: #eaf5ff;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .cta-box a { text-decoration: underline; }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .offer-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            background-color: var(--surface-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        .offer-card h3 { margin-bottom: 0.5rem; color: #2c3e50; }
+        .offer-card p { font-size: 0.9rem; color: var(--text-muted-color); margin-bottom: 1.5rem; min-height: 50px;}
+
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="site-title"><a href="#home">Risij.uk Blog</a></div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#offers">All Offers</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="top"></div>
+
+    <!-- Sub-Pages -->
+
+    <section id="offers" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h1>All the Best UK Supermarket Offers</h1>
+                <p>Here's the rundown of the latest deals from all the big shops, brought to you by <a href="https://risij.uk" target="_blank">Risij.uk</a>.</p>
+            </div>
+            <p style="text-align: center; margin-bottom: 2rem;">To get the freshest deals, these links will take you right to our main site. You should probably bookmark <a href="https://risij.uk" target="_blank">Risij.uk</a> so you're always in the loop, eh?</p>
+            <div class="offers-grid">
+                <div class="offer-card"><h3>Aldi Offers</h3><p>Check out the Specialbuys and weekly grocery steals.</p><a href="https://risij.uk/aldi-offers-next-week" class="btn-primary" target="_blank">See Aldi Deals</a></div>
+                <div class="offer-card"><h3>Asda Offers</h3><p>Find out what's on Rollback and other promos.</p><a href="https://risij.uk/asda-offers-this-week" class="btn-primary" target="_blank">See Asda Deals</a></div>
+                <div class="offer-card"><h3>Co-op Offers</h3><p>Good deals for members and the community.</p><a href="https://risij.uk/co-op-offers-this-week" class="btn-primary" target="_blank">See Co-op Deals</a></div>
+                <div class="offer-card"><h3>Costco UK Offers</h3><p>Go big or go home with these warehouse savings.</p><a href="https://risij.uk/costco-uk-offers" class="btn-primary" target="_blank">See Costco Deals</a></div>
+                <div class="offer-card"><h3>Farmfoods Offers</h3><p>Awesome value on frozen stuff and pantry fillers.</p><a href="https://risij.uk/farmfoods-offers-this-week" class="btn-primary" target="_blank">See Farmfoods Deals</a></div>
+                <div class="offer-card"><h3>Lidl Offers</h3><p>Get the goods from the Middle of Lidl and more.</p><a href="https://risij.uk/lidl-offers-this-week" class="btn-primary" target="_blank">See Lidl Deals</a></div>
+                <div class="offer-card"><h3>Morrisons Offers</h3><p>Deals from Market Street and all the big brands.</p><a href="https://risij.uk/morrisons-offers-this-week" class="btn-primary" target="_blank">See Morrisons Deals</a></div>
+                <div class="offer-card"><h3>Iceland Offers</h3><p>Score some sweet multi-buy deals and exclusives.</p><a href="https://risij.uk/iceland-offers-this-week" class="btn-primary" target="_blank">See Iceland Deals</a></div>
+                <div class="offer-card"><h3>Spar Offers</h3><p>Save a few bucks at your local neighbourhood store.</p><a href="https://risij.uk/spar-offers-next-week" class="btn-primary" target="_blank">See Spar Deals</a></div>
+                <div class="offer-card"><h3>Sainsbury's Offers</h3><p>Use your Nectar card to get the best prices.</p><a href="https://risij.uk/sainsburys-offer-this-week" class="btn-primary" target="_blank">See Sainsbury's Deals</a></div>
+                <div class="offer-card"><h3>Tesco Offers</h3><p>Clubcard prices are where it's at for big savings.</p><a href="https://risij.uk/tesco-offers-this-week" class="btn-primary" target="_blank">See Tesco Deals</a></div>
+                <div class="offer-card"><h3>Waitrose Offers</h3><p>Get the good stuff without breaking the bank.</p><a href="https://risij.uk/waitrose-offers-this-week" class="btn-primary" target="_blank">See Waitrose Deals</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page">
+        <div class="container">
+             <div class="page-content">
+                <header class="page-header">
+                    <h1>So, What's the Story, Eh?</h1>
+                </header>
+                <article class="article-content" style="max-width: 800px; margin: auto;">
+                    <h2>Our Mission</h2>
+                    <p>Let's be real, the cost of groceries is a bit of a kerfuffle these days. Risij.uk started with a pretty simple idea: make it easier for folks in the UK to save a few loonies and toonies. We got tired of hopping between a dozen different websites just to see who had the best deal on cheese.</p>
+                    <p>Our goal is to help you shop smarter, keep more cash in your wallet, and get back to doing more important things. We do the heavy lifting of tracking the weekly flyers so you don't have to.</p>
+                    
+                    <h2>How We Do It</h2>
+                    <p>Think of Risij.uk as your main hub for all things grocery deals. Our main site, <a href="https://risij.uk" target="_blank">Risij.uk</a>, pulls in all the latest offers from the big stores and lays them out nice and simple. This blog here is where we give you the extra scoop—tips, tricks, and strategies to be a real pro saver. Whether you're planning for the <a href="https://risij.uk/aldi-offers-next-week" target="_blank">Aldi offers next week</a> or figuring out the <a href="#article-tesco">Tesco offers this week</a>, we've got your back.</p>
+
+                    <h2>Our Promise</h2>
+                    <p>We're committed to giving you the straight goods—accurate, up-to-date, and honest info. We just want to be the best place to go for supermarket savings in the UK. Thanks for trusting us to help with your shopping, beauty!</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="page">
+         <div class="container">
+             <div class="page-content">
+                <header class="page-header">
+                   <h1>Give Us a Shout!</h1>
+                   <p>Got a question, a good tip, or just want to say hi? We'd love to hear from you.</p>
+               </header>
+               <article class="article-content" style="max-width: 800px; margin: auto; text-align: center;">
+                   <h2>Get in Touch</h2>
+                   <p>Your feedback is a huge help in making Risij.uk even better. Don't be shy if you have an idea or want to work together.</p>
+                   <h3>Best way to reach us is by Email:</h3>
+                   <p>Just fire off an email and we'll get back to you in a couple of days, for sure.</p>
+                   <p><strong>Our Email:</strong> <a href="mailto:contact@risij.uk" class="btn-primary">contact@risij.uk</a></p>
+
+                   <h3 style="margin-top: 2rem;">Just so you know...</h3>
+                   <p>Risij.uk is our own thing, we're not officially part of any of the supermarkets we feature. If you have a question about a specific product, you're best off contacting the store directly.</p>
+               </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Pages -->
+
+    <section id="article-aldi" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>Gearing Up for Next Week's Aldi Run, Eh?</h1><p class="article-meta">Published on October 26, 2024</p></header><p>Being smart with your money means you gotta plan ahead. For Aldi shoppers, a key move is checking out the <a href="https://risij.uk/aldi-offers-next-week" target="_blank">Aldi offers for next week</a> ahead of time. It helps you plan your meals and make sure you snag the good stuff before it's gone.</p><h2>Tackling the "Specialbuys" Aisle</h2><p>You know that middle aisle at Aldi, the one with all the random "Specialbuys"? That stuff disappears faster than a two-four on a long weekend. To get what you want, you need a game plan.</p><ul><li><strong>Do Your Homework:</strong> Check the flyer or Risij.uk to see what's coming up that you might want.</li><li><strong>Timing is Everything:</strong> The best items can sell out in hours. If you really want something, showing up early on Thursday or Sunday is the way to go.</li></ul><div class="cta-box"><p>Plan your shop like a pro. <a href="https://risij.uk/aldi-offers-next-week" target="_blank">See the latest Aldi offers for next week on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-lidl">The Real Scoop on Lidl's Offers</a></li><li><a href="#article-asda">Figuring Out Asda's Deals</a></li><li><a href="#article-tesco">The Lowdown on Tesco Clubcard</a></li></ul></div></aside></div></div></section>
+    <section id="article-asda" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>Figuring Out Asda's Deals This Week</h1><p class="article-meta">Published on October 25, 2024</p></header><p>Asda is a solid choice for the family grocery haul because they've got tons of stuff at good prices. The <a href="https://risij.uk/asda-offers-this-week" target="_blank">Asda offers this week</a> are always worth a look, especially their famous "Rollbacks."</p><h2>So, What's a "Rollback"?</h2><p>A "Rollback" is just Asda's way of saying they've lowered the price on something for a while, longer than your typical weekly sale. It gives you a good chance to grab popular stuff for cheaper.</p><ul><li><strong>Look for the Signs:</strong> You can't miss the green Rollback signs in the store and online.</li><li><strong>Stock Up Smart:</strong> These deals are great for loading up on things that won't go bad, but don't be a hoser—only buy what you'll actually use, eh?</li></ul><div class="cta-box"><p>Don't miss out on these deals. <a href="https://risij.uk/asda-offers-this-week" target="_blank">See all of Asda's offers for this week on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-sainsburys">How to Use Nectar at Sainsbury's</a></li><li><a href="#article-morrisons">A Guide to Morrisons Market Street</a></li><li><a href="#article-tesco">The Lowdown on Tesco Clubcard</a></li></ul></div></aside></div></div></section>
+    <section id="article-co-op" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>Co-op: Good Deals and Good for the Hood</h1><p class="article-meta">Published on October 24, 2024</p></header><p>Your local Co-op is more than just a place to grab some milk. The <a href="https://risij.uk/co-op-offers-this-week" target="_blank">Co-op offers this week</a> are pretty decent, especially if you're a member.</p><h2>Why You Should Be a Co-op Member</h2><p>It costs a whole loonie to join, but being a Co-op member gets you special prices that others don't get. Plus, you earn rewards and help out local causes, so it's a win-win.</p><h2>Deals to Keep an Eye On</h2><ul><li><strong>Member Prices:</strong> Look for the blue tags. That's the good stuff.</li><li><strong>Meal Deals:</strong> Always a solid choice for a cheap and easy lunch.</li><li><strong>Multi-buys:</strong> A good way to save when you stock up on frozen stuff or pantry items.</li></ul><div class="cta-box"><p>Get special prices and help your community. <a href="https://risij.uk/co-op-offers-this-week" target="_blank">Check out the Co-op offers this week on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-spar">Making the Most of Spar</a></li><li><a href="#article-iceland">A Look at Iceland's Deals</a></li><li><a href="#article-asda">Figuring Out Asda's Deals</a></li></ul></div></aside></div></div></section>
+    <section id="article-costco" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>Costco UK: The Art of Buying in Bulk</h1><p class="article-meta">Published on October 23, 2024</p></header><p>Costco is a whole different animal. It's a members-only warehouse where buying a giant pile of something means you pay less for each one. If you're smart about the <a href="https://risij.uk/costco-uk-offers" target="_blank">Costco UK offers</a>, you can save some serious cash over time.</p><h2>Is the Membership Worth It?</h2><p>If you've got a big family or lots of storage space, the annual fee usually pays for itself. The trick is to buy stuff you use all the time and that won't go bad.</p><ul><li><strong>Stick to the Basics:</strong> Think toilet paper, cleaning supplies, and stuff for the pantry.</li><li><strong>Kirkland Signature Brand:</strong> Their own brand is as good as the big names but way cheaper. It's a no-brainer.</li><li><strong>Cheap Gas:</strong> The gas at Costco is almost always the cheapest around, which can make up for the membership fee all by itself.</li></ul><div class="cta-box"><p>Figure out if buying in bulk is for you. <a href="https://risij.uk/costco-uk-offers" target="_blank">See the latest Costco UK offers on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-farmfoods">Farmfoods: For Your Freezer and Pantry</a></li><li><a href="#article-iceland">A Look at Iceland's Deals</a></li><li><a href="#article-asda">Figuring Out Asda's Deals</a></li></ul></div></aside></div></div></section>
+    <section id="article-farmfoods" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>Farmfoods: Your Go-To for Freezer and Pantry Deals</h1><p class="article-meta">Published on October 22, 2024</p></header><p>Farmfoods is king of the frozen aisle, but they've also got great prices on everyday groceries. The <a href="https://risij.uk/farmfoods-offers-this-week" target="_blank">Farmfoods offers this week</a> are a golden opportunity for anyone looking to save a buck.</p><h2>How to Win at Farmfoods</h2><p>Everyone knows about their frozen food, but don't sleep on their other aisles. You can find some real steals on regular groceries, too.</p><ul><li><strong>Sign Up for Vouchers:</strong> Get on their email list. They send out coupons that'll save you even more money.</li><li><strong>Love the Multi-buys:</strong> Their "X for £Y" deals are where it's at. Perfect for stocking up the freezer.</li><li><strong>Big Brands, Small Prices:</strong> You can find the same big brands you see elsewhere, but often for cheaper.</li></ul><div class="cta-box"><p>Stock up for less. <a href="https://risij.uk/farmfoods-offers-this-week" target="_blank">Find the best Farmfoods offers this week on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-iceland">A Look at Iceland's Deals</a></li><li><a href="#article-costco">The Art of Buying in Bulk at Costco</a></li><li><a href="#article-asda">Figuring Out Asda's Deals</a></li></ul></div></aside></div></div></section>
+    <section id="article-lidl" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>The Real Scoop on Lidl's Weekly Offers and App</h1><p class="article-meta">Published on October 21, 2024</p></header><p>Lidl has a killer combo: cheap, good-quality groceries and the wild "Middle of Lidl" section. Keeping up with the <a href="https://risij.uk/lidl-offers-this-week" target="_blank">Lidl offers this week</a> is key to saving the most.</p><h2>The "Middle of Lidl" Game Plan</h2><p>Every Thursday, the middle aisles get a whole new batch of random stuff. These are limited-time deals, so you have to be ready to pounce if you see something you like.</p><h2>You Need the Lidl Plus App</h2><p>For real, if you shop at Lidl, get the app. It's a game-changer. Here's why:</p><ul><li><strong>Weekly Coupons:</strong> Get discounts on different kinds of products every week.</li><li><strong>Digital Receipts:</strong> No more lost paper receipts. Makes returns way easier.</li><li><strong>Partner Offers:</strong> Sometimes you get deals at other places, too.</li></ul><p>The app makes it super easy to track the <a href="https://risij.uk/lidl-offers-this-week" target="_blank">Lidl offers for this week</a>.</p><div class="cta-box"><p>Get the app and save even more. <a href="https://risij.uk/lidl-offers-this-week" target="_blank">See all the current Lidl offers on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-aldi">Gearing Up for Aldi's Offers</a></li><li><a href="#article-tesco">The Lowdown on Tesco Clubcard</a></li><li><a href="#article-sainsburys">How to Use Nectar at Sainsbury's</a></li></ul></div></aside></div></div></section>
+    <section id="article-morrisons" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>A Guide to Morrisons: Market Street and My Morrisons</h1><p class="article-meta">Published on October 20, 2024</p></header><p>Morrisons has that "Market Street" thing going on, with actual butchers and bakers in the store, which is pretty cool. The <a href="https://risij.uk/morrisons-offers-this-week" target="_blank">Morrisons offers this week</a> are a mix of deals on fresh stuff and regular groceries.</p><h2>Shopping Market Street the Smart Way</h2><p>The stuff from the Market Street counters is often better quality and a better deal than the pre-packaged options. Don't be afraid to ask the staff for their recommendations.</p><h2>The My Morrisons App</h2><p>The "My Morrisons" app gives you personalized deals based on what you usually buy. You have to activate the coupons in the app *before* you shop to get the discount, so don't forget!</p><div class="cta-box"><p>Get fresh food and smart savings. <a href="https://risij.uk/morrisons-offers-this-week" target="_blank">Check the Morrisons offers this week on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-asda">Figuring Out Asda's Deals</a></li><li><a href="#article-sainsburys">How to Use Nectar at Sainsbury's</a></li><li><a href="#article-waitrose">Shopping Smart at Waitrose</a></li></ul></div></aside></div></div></section>
+    <section id="article-iceland" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>A Deep Dive into Iceland's Deals</h1><p class="article-meta">Published on October 19, 2024</p></header><p>Iceland is the place for frozen food, but they've got a full range of groceries too. The <a href="https://risij.uk/iceland-offers-this-week" target="_blank">Iceland offers this week</a> are famous for their awesome multi-buy deals on everything.</p><h2>The Iceland Bonus Card Trick</h2><p>The Iceland Bonus Card is a pretty sweet deal. It's a loyalty card you pre-load with cash. For every £20 you put on it, Iceland gives you an extra £1. That's like getting a 5% discount on everything you buy with the card.</p><h2>Exclusive Brand Deals</h2><p>Iceland has exclusive deals to sell frozen food from brands like Greggs and TGI Fridays. This stuff is often part of their multi-buy deals, which makes it a great value.</p><div class="cta-box"><p>There's more than just frozen food. <a href="https://risij.uk/iceland-offers-this-week" target="_blank">Discover the Iceland offers this week on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-farmfoods">Farmfoods: For Your Freezer and Pantry</a></li><li><a href="#article-co-op">Co-op: Good Deals and Good for the Hood</a></li><li><a href="#article-costco">The Art of Buying in Bulk at Costco</a></li></ul></div></aside></div></div></section>
+    <section id="article-spar" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>Spar: How to Make Your Corner Store Cheaper</h1><p class="article-meta">Published on October 18, 2024</p></header><p>Spar is all about convenience. The regular prices might be a bit higher than the big supermarkets, but if you plan around the <a href="https://risij.uk/spar-offers-next-week" target="_blank">Spar offers for next week</a>, you can actually save some money on those quick trips.</p><h2>What to Look for at Spar</h2><p>Spar's own-brand stuff is usually a good mix of quality and price. Their deals are often on things like snacks, candy, and drinks.</p><ul><li><strong>Meal Deals:</strong> A solid option for a cheap lunch on the go.</li><li><strong>"Mega Deals":</strong> Big promotions on popular brand-name stuff.</li><li><strong>Local Goodies:</strong> A lot of Spars are locally owned, so you might find some cool stuff from local producers.</li></ul><div class="cta-box"><p>Make your local shop a little friendlier on the wallet. <a href="https://risij.uk/spar-offers-next-week" target="_blank">See the Spar offers for next week on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-co-op">Co-op: Good Deals and Good for the Hood</a></li><li><a href="#article-asda">Figuring Out Asda's Deals</a></li><li><a href="#article-morrisons">A Guide to Morrisons Market Street</a></li></ul></div></aside></div></div></section>
+    <section id="article-sainsburys" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>How to Use Nectar to Really Save at Sainsbury's</h1><p class="article-meta">Published on October 17, 2024</p></header><p>Sainsbury's is known for having good quality groceries. The secret to getting good prices there is the Nectar loyalty program. It turns the regular <a href="https://risij.uk/sainsburys-offer-this-week" target="_blank">Sainsbury's offer this week</a> into a really sweet deal.</p><h2>You Absolutely Need a Nectar Card</h2><p>Honestly, shopping at Sainsbury's without a Nectar card is just leaving money on the table. "Nectar Prices" give you big, instant discounts right at the checkout. Just scan your card or app, and you're golden.</p><ul><li><strong>Get the App:</strong> The Nectar app gives you personalized bonus point offers, so you can rack up points even faster.</li><li><strong>Spot the Nectar Prices:</strong> Look for the purple signs in the store. That's where the best deals are.</li></ul><h2>"Taste the Difference" Deals</h2><p>Sainsbury's fancy "Taste the Difference" brand goes on sale pretty often, which is a great chance to buy some higher-end stuff for less.</p><div class="cta-box"><p>Get the member-only prices. It's a no-brainer. <a href="https://risij.uk/sainsburys-offer-this-week" target="_blank">Discover the best Sainsbury's offers this week on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-tesco">The Lowdown on Tesco Clubcard</a></li><li><a href="#article-waitrose">Shopping Smart at Waitrose</a></li><li><a href="#article-morrisons">A Guide to Morrisons Market Street</a></li></ul></div></aside></div></div></section>
+    <section id="article-tesco" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>The Lowdown on Tesco Clubcard: Your Secret Weapon for Savings</h1><p class="article-meta">Published on October 16, 2024</p></header><p>The Tesco Clubcard is probably one of the best loyalty cards in the UK, for sure. It's the only way to get the best deals from the <a href="https://risij.uk/tesco-offers-this-week" target="_blank">Tesco offers this week</a>.</p><h2>How Clubcard Prices Work</h2><p>It's super simple. Things on sale have two prices on the shelf: the regular one, and a cheaper Clubcard Price. The discount happens automatically when you scan your Clubcard. The savings can be huge, sometimes even half price.</p><h2>It's More Than Just Discounts</h2><p>You also get points for every pound you spend. These points turn into vouchers you can use in the store, or you can trade them with "Reward Partners" for up to double their value on things like restaurants and days out. It's a double-double!</p><div class="cta-box"><p>It's free to join, so what are you waiting for? <a href="https://risij.uk/tesco-offers-this-week" target="_blank">Check the latest Tesco offers this week on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-sainsburys">How to Use Nectar at Sainsbury's</a></li><li><a href="#article-asda">Figuring Out Asda's Deals</a></li><li><a href="#article-lidl">The Real Scoop on Lidl's Offers</a></li></ul></div></aside></div></div></section>
+    <section id="article-waitrose" class="page"><div class="container"><div class="layout-grid"><main><article class="article-content"><header class="article-header"><h1>Shopping Smart at Waitrose: How to Get Good Value</h1><p class="article-meta">Published on October 15, 2024</p></header><p>Okay, so Waitrose can be a bit fancy, but a smart shopper can still find some great deals. If you use the <a href="https://risij.uk/waitrose-offers-this-week" target="_blank">Waitrose offers this week</a> and their loyalty card, you can get high-quality groceries for a decent price.</p><h2>The myWaitrose Card</h2><p>The myWaitrose card is free and gets you personalized coupons, member-only discounts, and special prices at the fresh fish and meat counters.</p><h2>Tricks for Saving at Waitrose</h2><ul><li><strong>The "Essential Waitrose" Brand:</strong> This is their basic own-brand line. It has the same high quality you expect from Waitrose, but at a much better price.</li><li><strong>"Dine In" Meal Deals:</strong> These are a great value. You usually get a main, a side, a dessert, and a bottle of wine for one set price. Perfect for a nice meal at home without the hassle.</li></ul><div class="cta-box"><p>Get the good stuff for less. <a href="https://risij.uk/waitrose-offers-this-week" target="_blank">Explore the latest Waitrose offers this week on Risij.uk.</a></p></div></article></main><aside><div class="sidebar-widget"><h3>Check These Out</h3><ul><li><a href="#article-sainsburys">How to Use Nectar at Sainsbury's</a></li><li><a href="#article-morrisons">A Guide to Morrisons Market Street</a></li><li><a href="#article-tesco">The Lowdown on Tesco Clubcard</a></li></ul></div></aside></div></div></section>
+
+    <!-- Home Page -->
+
+    <section id="home" class="page">
+        <div class="hero-section">
+            <h1>Your Guide to Smarter Supermarket Savings, Eh?</h1>
+            <p>Welcome to the Risij.uk blog! This is your go-to spot for getting the scoop on weekly offers at UK supermarkets. We're here to help you make smart choices and save a few loonies on your grocery bill.</p>
+        </div>
+        <div class="container">
+            <div class="articles-list">
+                <article class="article-preview">
+                    <div class="article-preview-content">
+                        <h2><a href="#article-aldi">Gearing Up for Next Week's Aldi Run, Eh?</a></h2>
+                        <p>Plan your attack by checking out the upcoming <a href="https://risij.uk/aldi-offers-next-week" target="_blank">Aldi offers for next week</a>, especially the Specialbuys.</p>
+                        <a href="#article-aldi" class="btn-primary">Read the Scoop</a>
+                    </div>
+                </article>
+                <article class="article-preview">
+                    <div class="article-preview-content">
+                        <h2><a href="#article-asda">Figuring Out Asda's Deals This Week</a></h2>
+                        <p>A look at "Rollbacks" and other top deals in the <a href="https://risij.uk/asda-offers-this-week" target="_blank">Asda offers for this week</a>.</p>
+                        <a href="#article-asda" class="btn-primary">Read the Scoop</a>
+                    </div>
+                </article>
+                <article class="article-preview">
+                    <div class="article-preview-content">
+                        <h2><a href="#article-tesco">The Lowdown on Tesco Clubcard</a></h2>
+                        <p>Find out how to save big with Clubcard Prices on the <a href="https://risij.uk/tesco-offers-this-week" target="_blank">Tesco offers for this week</a>.</p>
+                        <a href="#article-tesco" class="btn-primary">Read the Scoop</a>
+                    </div>
+                </article>
+                <article class="article-preview">
+                    <div class="article-preview-content">
+                        <h2><a href="#article-sainsburys">How to Use Nectar to Really Save at Sainsbury's</a></h2>
+                        <p>Get the most out of the <a href="https://risij.uk/sainsburys-offer-this-week" target="_blank">Sainsbury's offer this week</a> with Nectar Prices.</p>
+                        <a href="#article-sainsburys" class="btn-primary">Read the Scoop</a>
+                    </div>
+                </article>
+                <article class="article-preview">
+                    <div class="article-preview-content">
+                        <h2><a href="#article-lidl">The Real Scoop on Lidl's Weekly Offers</a></h2>
+                        <p>A guide to the "Middle of Lidl" and the Lidl Plus app for the <a href="https://risij.uk/lidl-offers-this-week" target="_blank">Lidl offers for this week</a>.</p>
+                        <a href="#article-lidl" class="btn-primary">Read the Scoop</a>
+                    </div>
+                </article>
+                <article class="article-preview">
+                    <div class="article-preview-content">
+                        <h2><a href="#article-morrisons">A Guide to Morrisons Market Street</a></h2>
+                        <p>Explore deals on fresh food and groceries in the <a href="https://risij.uk/morrisons-offers-this-week" target="_blank">Morrisons offers for this week</a>.</p>
+                        <a href="#article-morrisons" class="btn-primary">Read the Scoop</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 <a href="https://risij.uk">Risij.uk</a> – Keep your stick on the ice.</p>
+        </div>
+    </footer>
+
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

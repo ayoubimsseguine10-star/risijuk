@@ -1,0 +1,5 @@
+{
+  "name": "Risij.uk Static Blog",
+  "description": "A single-file, static HTML and CSS blog showcasing UK supermarket offers. This application is built without JavaScript, using CSS for page navigation, and provides SEO-optimized content about weekly deals.",
+  "requestFramePermissions": []
+}

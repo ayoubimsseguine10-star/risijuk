@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risij.uk Blog | The Hottest Tea on UK Supermarket Deals</title>
+    <meta name="description" content="OMG! Get the lowdown on all the sick deals this week from Lidl, Tesco, and more. Risij.uk is your BFF for saving major cash on groceries. Let's do this!">
+    <meta name="keywords" content="supermarket deals, UK savings, hot deals, Lidl offers, Asda deals, grocery savings, risij.uk">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Modern Dark Theme 2025 */
+        :root {
+            --background-color: #121212;
+            --surface-color: #1e1e1e;
+            --primary-color: #00BFFF; /* Deep Sky Blue */
+            --primary-hover-color: #009ACD;
+            --text-color: #e0e0e0;
+            --heading-color: #ffffff;
+            --border-color: #333;
+            --shadow-color: rgba(0, 191, 255, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .site-header {
+            background-color: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--heading-color);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 20px 80px;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.95)), url('https://source.unsplash.com/random/1600x900/?shopping,neon') no-repeat center center/cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            color: var(--heading-color);
+            margin: 0 0 10px;
+            font-weight: 800;
+            text-shadow: 0 0 15px var(--shadow-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--text-color);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #000;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px var(--shadow-color);
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 25px var(--shadow-color);
+        }
+
+        /* Main Content & Articles */
+        .page-wrapper {
+            display: flex;
+            gap: 40px;
+            padding: 50px 0;
+            flex-direction: column;
+        }
+        
+        @media (min-width: 992px) {
+            .page-wrapper {
+                flex-direction: row;
+            }
+        }
+
+        .main-content {
+            flex: 3;
+        }
+        
+        .sidebar {
+            flex: 1;
+            position: sticky;
+            top: 100px; /* Header height + some margin */
+            align-self: flex-start;
+        }
+
+        .deal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .deal-card {
+            background-color: var(--surface-color);
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .deal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .deal-card .card-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .deal-card h3 {
+            margin: 0 0 10px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--heading-color);
+            font-size: 1.4rem;
+        }
+        
+        .deal-card p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .article-full {
+            background-color: var(--surface-color);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .article-full h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin: 0 0 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .article-full p {
+            margin-bottom: 1.2em;
+        }
+        
+        .article-link {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: var(--primary-color);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .article-link:hover {
+            background-color: var(--primary-hover-color);
+            transform: scale(1.05);
+        }
+
+        /* Sidebar Widgets */
+        .widget {
+            background-color: var(--surface-color);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .widget h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 0 0 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--surface-color);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .site-footer p {
+            margin: 0;
+        }
+        
+        .site-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .site-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .sidebar {
+                position: static;
+                top: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            .article-full h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="https://risij.uk" class="logo">Risij<span>.uk</span></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#deals">Deals</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Spill the Tea on Savings!</h1>
+            <p>What's up, bestie! Get ready to slay your grocery budget. We've got the 411 on the most fire deals from all your fave UK supermarkets. Let's get this bread!</p>
+            <a href="#deals" class="cta-button">Peep the Deals!</a>
+        </section>
+
+        <div class="container page-wrapper">
+            <div class="main-content">
+                <section id="deals">
+                    <div class="deal-grid">
+                        <!-- Preview Cards -->
+                        <a href="#aldi" class="deal-card">
+                            <div class="card-content"><h3>ALDI's Next Level Deals</h3><p>Like, literally the best offers are coming up. You HAVE to see this.</p></div>
+                        </a>
+                        <a href="#asda" class="deal-card">
+                            <div class="card-content"><h3>ASDA is Poppin' Off</h3><p>Get ready to fill your cart without emptying your wallet. It's a whole vibe.</p></div>
+                        </a>
+                        <a href="#co-op" class="deal-card">
+                            <div class="card-content"><h3>Co-op's Fire Finds</h3><p>Your local Co-op is bringing the heat this week with some seriously awesome deals.</p></div>
+                        </a>
+                        <a href="#costco" class="deal-card">
+                            <div class="card-content"><h3>Costco Bulk-Up Sesh</h3><p>OMG, the savings are HUGE. Time to stock up and live your best life.</p></div>
+                        </a>
+                        <a href="#farmfoods" class="deal-card">
+                            <div class="card-content"><h3>Farmfoods' Frozen Lewks</h3><p>Don't sleep on these deals. Your freezer is about to get a major glow-up.</p></div>
+                        </a>
+                        <a href="#lidl" class="deal-card">
+                            <div class="card-content"><h3>LIDL is That Girl</h3><p>For real, the middle aisle is calling your name with these epic weekly offers.</p></div>
+                        </a>
+                        <a href="#morrisons" class="deal-card">
+                            <div class="card-content"><h3>More Reasons for Morrisons</h3><p>Their deals are giving what they're supposed to give. You won't be disappointed!</p></div>
+                        </a>
+                        <a href="#iceland" class="deal-card">
+                            <div class="card-content"><h3>Iceland is So Cool</h3><p>Literally the coolest deals on all your fave frozen goodies. Go on, you deserve it.</p></div>
+                        </a>
+                        <a href="#spar" class="deal-card">
+                            <div class="card-content"><h3>SPARkle & Shine</h3><p>Don't miss out on these convenient and cute deals from your neighborhood SPAR.</p></div>
+                        </a>
+                        <a href="#sainsburys" class="deal-card">
+                            <div class="card-content"><h3>Sainsbury's Serves</h3><p>Serving taste and value. These offers are everything. Get into it!</p></div>
+                        </a>
+                        <a href="#tesco" class="deal-card">
+                            <div class="card-content"><h3>Tesco's Extra Savings</h3><p>Every little helps, and these deals help a LOT. Clubcard points for days!</p></div>
+                        </a>
+                        <a href="#waitrose" class="deal-card">
+                            <div class="card-content"><h3>Waitrose is a Whole Mood</h3><p>Treat yourself with these boujee-on-a-budget deals. You're worth it!</p></div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Full Articles -->
+                <div class="articles-container">
+                    <article id="aldi" class="article-full">
+                        <h2>ALDI's Next Level Deals</h2>
+                        <p>Alright, listen up! ALDI is about to drop some next-level offers that are gonna have you shook. We're talking fresh produce, amazing snacks, and those Specialbuys that are, like, impossible to resist. Get ready to race down the aisles, because these deals are too good to miss!</p>
+                        <a href="https://risij.uk/aldi-offers-next-week" target="_blank" rel="noopener noreferrer" class="article-link">Get the Full Scoop on ALDI</a>
+                    </article>
+
+                    <article id="asda" class="article-full">
+                        <h2>ASDA is Poppin' Off This Week</h2>
+                        <p>OMG, ASDA is totally where it's at this week. Their prices are, like, so low it's crazy. Whether you're doing a big shop or just grabbing a few things, their Rollbacks and special offers are gonna save you some serious coin. It's a whole mood!</p>
+                        <a href="https://risij.uk/asda-offers-this-week" target="_blank" rel="noopener noreferrer" class="article-link">Check Out ASDA's Vibe</a>
+                    </article>
+
+                    <article id="co-op" class="article-full">
+                        <h2>Your Local Co-op Has the Fire Finds</h2>
+                        <p>For real, don't sleep on the Co-op! They're coming through with some clutch deals on everyday essentials and yummy treats. It's super convenient and their offers are legit amazing. Support local and save cash? We love to see it!</p>
+                        <a href="https://risij.uk/co-op-offers-this-week" target="_blank" rel="noopener noreferrer" class="article-link">See Co-op's Hot Deals</a>
+                    </article>
+
+                    <article id="costco" class="article-full">
+                        <h2>Costco Bulk-Up Sesh!</h2>
+                        <p>Okay, it's time to go big or go home! Costco's deals are literally ginormous. Grab your membership card and get ready to stock up on everything. The savings are insane, and you know you need that 5-gallon tub of mayo. Live your best, fully-stocked life!</p>
+                        <a href="https://risij.uk/costco-uk-offers" target="_blank" rel="noopener noreferrer" class="article-link">Go Big at Costco</a>
+                    </article>
+
+                    <article id="farmfoods" class="article-full">
+                        <h2>Farmfoods' Frozen Lewks</h2>
+                        <p>Your freezer is about to get the glow-up it deserves! Farmfoods has the hookup on all things frozen, from pizzas to veggies to ice cream. The prices are so low, you can stock up for, like, ever. It's giving... savvy saver!</p>
+                        <a href="https://risij.uk/farmfoods-offers-this-week" target="_blank" rel="noopener noreferrer" class="article-link">Get the Frozen Tea at Farmfoods</a>
+                    </article>
+                    
+                    <article id="lidl" class="article-full">
+                        <h2>LIDL is That Girl This Week</h2>
+                        <p>LIDL is basically the main character right now. Their weekly deals are iconic, and the middle aisle is a treasure hunt you're totally going to win. From fresh-baked goodies to random gadgets you suddenly need, LIDL has it all. Get in there!</p>
+                        <a href="https://risij.uk/lidl-offers-this-week" target="_blank" rel="noopener noreferrer" class="article-link">See Why LIDL is Iconic</a>
+                    </article>
+                    
+                    <article id="morrisons" class="article-full">
+                        <h2>More Reasons for Morrisons</h2>
+                        <p>Okay, so Morrisons is serving looks and deals this week. Their Market Street has all the fresh stuff, and their offers are making our wallets so happy. It's a total vibe for anyone who loves good food and even better prices.</p>
+                        <a href="https://risij.uk/morrisons-offers-this-week" target="_blank" rel="noopener noreferrer" class="article-link">Explore Morrisons' Deals</a>
+                    </article>
+
+                    <article id="iceland" class="article-full">
+                        <h2>Iceland is So Freakin' Cool</h2>
+                        <p>Iceland is bringing the chill with the hottest deals. Get all your frozen faves, from party food to family dinners, for way less. Why is Iceland so cool? Because they're saving you major cash, duh!</p>
+                        <a href="https://risij.uk/iceland-offers-this-week" target="_blank" rel="noopener noreferrer" class="article-link">Get the Coolest Iceland Offers</a>
+                    </article>
+
+                    <article id="spar" class="article-full">
+                        <h2>SPARkle & Shine with These Deals</h2>
+                        <p>When you're on the go, SPAR is your BFF. They've got some surprisingly awesome deals on snacks, drinks, and all the essentials. It's convenience and savings all rolled into one. You'll be sparkling!</p>
+                        <a href="https://risij.uk/spar-offers-next-week" target="_blank" rel="noopener noreferrer" class="article-link">Find Your Spark at SPAR</a>
+                    </article>
+
+                    <article id="sainsburys" class="article-full">
+                        <h2>Sainsbury's is Serving Quality</h2>
+                        <p>Taste the difference? More like taste the savings! Sainsbury's is dishing out some seriously good offers. From their fancy own-brand stuff to big-name faves, you can live well for less. It's a whole aesthetic.</p>
+                        <a href="https://risij.uk/sainsburys-offer-this-week" target="_blank" rel="noopener noreferrer" class="article-link">Taste the Sainsbury's Deals</a>
+                    </article>
+
+                    <article id="tesco" class="article-full">
+                        <h2>Get Extra with Tesco This Week</h2>
+                        <p>Got your Clubcard ready? Because Tesco's deals are not a drill! Every little helps, and these savings are, like, a LOT of help. Scan that card and watch the prices drop. It's basically magic.</p>
+                        <a href="https://risij.uk/tesco-offers-this-week" target="_blank" rel="noopener noreferrer" class="article-link">Unlock Tesco's Clubcard Prices</a>
+                    </article>
+
+                    <article id="waitrose" class="article-full">
+                        <h2>Waitrose is a Whole Mood</h2>
+                        <p>Feeling a little boujee? Waitrose has got you. Get high-key quality without the high-key price tag with their weekly offers. Go on, treat yourself to something nice. You totally deserve it, bestie.</p>
+                        <a href="https://risij.uk/waitrose-offers-this-week" target="_blank" rel="noopener noreferrer" class="article-link">Treat Yourself at Waitrose</a>
+                    </article>
+                </div>
+            </div>
+            <aside class="sidebar">
+                <div id="about" class="widget">
+                    <h3>About Us, or Whatever</h3>
+                    <p>Hiii! We're Risij.uk, and we're literally obsessed with finding the best deals so you don't have to. We spend, like, all our time hunting for savings so you can be the savvy queen you are. Stick with us, and you'll be saving major bank. Period.</p>
+                </div>
+                <div id="contact" class="widget">
+                    <h3>Slide into Our DMs</h3>
+                    <p>Got some hot tea on a deal we missed? Wanna collab? Just wanna say hey? We're, like, totally here for it. Hit us up and let's chat. We're all about that community vibe!</p>
+                    <a href="https://risij.uk" class="article-link">Contact Us!</a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 <a href="https://risij.uk">Risij.uk</a>. All Rights Reserved, XOXO.</p>
+    </footer>
+
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

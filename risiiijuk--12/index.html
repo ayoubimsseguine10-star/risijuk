@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risij.uk Blog | Your Guide to Smart UK Grocery Savings, Eh!</title>
+    <meta name="description" content="How's it goin', eh? Let's save some loonies! Risij.uk has the scoop on the best weekly offers from Lidl, ALDI, Tesco, and all the UK supermarkets.">
+    <meta name="keywords" content="UK supermarket offers, grocery deals, save money UK, Risij.uk, ALDI deals, Lidl offers, Tesco savings">
+    
+    <style>
+        /* Classic Blog Theme - 2025 Style using Merriweather & Open Sans */
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+        :root {
+            --primary-color: #b58900; /* A warm, classic gold */
+            --secondary-color: #cb4b16;
+            --bg-color: #fdf6e3; /* Solarized light background */
+            --card-bg: #eee8d5;
+            --text-color: #657b83; /* Solarized text */
+            --heading-color: #073642; /* Solarized dark heading */
+            --border-color: #eee8d5;
+            --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Basic Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            color: var(--heading-color);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        h2 { 
+            font-size: 2.2rem; 
+            margin-bottom: 2rem; 
+            padding-bottom: 0.5rem; 
+        }
+        h3 { font-size: 1.4rem; margin-bottom: 0.75rem; font-weight: 700; }
+        p { margin-bottom: 1.25rem; }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .site-header {
+            background: var(--card-bg);
+            padding: 1.5rem 0;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Merriweather', serif;
+        }
+        .site-title a { color: var(--heading-color); }
+        .site-title a:hover { text-decoration: none; color: var(--primary-color); }
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        .main-nav a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        .main-nav a:hover {
+            color: var(--heading-color);
+            text-decoration: none;
+        }
+        
+        /* Sections */
+        .page-section {
+            padding: 5rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+        }
+        .hero .highlight {
+            color: var(--primary-color);
+        }
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 1.5rem auto 2.5rem auto;
+            color: var(--text-color);
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+        }
+        .btn:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* Grid Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        @media (min-width: 992px) {
+            .main-layout {
+                grid-template-columns: 2.5fr 1fr;
+            }
+        }
+
+        /* Blog Articles */
+        .article-card {
+            background: var(--bg-color);
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+            padding: 2.5rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .article-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+        }
+        .article-card .read-more {
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .article-card-meta {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Article Page */
+        .article-content {
+            background: var(--bg-color);
+        }
+        .article-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .cta-box {
+            background: var(--card-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem 2rem;
+            margin: 2.5rem 0;
+            border-radius: 4px;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+        }
+        .sidebar-widget h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .sidebar-widget ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar-widget ul li a {
+            display: block;
+            padding: 0.4rem 0;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .sidebar-widget ul li a:hover {
+            color: var(--heading-color);
+            text-decoration: none;
+        }
+        
+        /* Footer */
+        .site-footer {
+            background: var(--heading-color);
+            color: var(--bg-color);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links a {
+            color: var(--bg-color);
+            opacity: 0.9;
+        }
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        .site-footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .site-header .container { flex-direction: column; gap: 1rem; }
+            h1 { font-size: 2.2rem; }
+            .hero { padding: 4rem 0; }
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <p class="site-title"><a href="#home">Risij.uk Blog</a></p>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#offers">All Offers</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="home" class="page-section hero">
+            <div class="container">
+                <h1>How's it Goin', Eh? Let's Save Some <span class="highlight">Loonies!</span></h1>
+                <p>Out for a rip to the grocery store? Before you go, check out the deals we found. We're talking real beauts from all over the UK. No need for a kerfuffle at the checkout when you got the inside scoop!</p>
+                <a href="#articles" class="btn">Check the Deals, Bud</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="main-layout">
+                <div class="main-content">
+
+                    <!-- Blog Articles Section (Homepage) -->
+                    <section id="articles" class="page-section">
+                        <h2>The Best Grocery Deals This Week</h2>
+                        <p>
+                            Right then. At <a href="https://risij.uk" target="_blank">Risij.uk</a>, we're here to make sure you're not spending a whole toonie when a loonie will do. We track down all the best deals, from the brilliant <a href="https://risij.uk/lidl-offers-this-week" target="_blank">Lidl offers this week</a> to the great finds at <a href="https://risij.uk/asda-offers-this-week" target="_blank">ASDA</a>. Think of us as your friendly neighbour, but for saving money.
+                        </p>
+                        
+                        <article class="article-card"><p class="article-card-meta">Deal Alert | Plan Ahead</p><h3>ALDI's Got a Beauty of a Deal Next Week</h3><p>Get the lowdown on the upcoming <a href="https://risij.uk/aldi-offers-next-week" target="_blank">ALDI offers next week</a>. Plan your shop and grab those Specialbuys before they're gone, eh!</p><a href="#article-aldi" class="read-more">Read More &rarr;</a></article>
+                        <article class="article-card"><p class="article-card-meta">Weekly Savings | Family Favourites</p><h3>Don't Be a Hoser, Check ASDA's Offers</h3><p>This week is chock-a-block with deals. Check out the <a href="https://risij.uk/asda-offers-this-week" target="_blank">ASDA offers this week</a> for great prices on stuff for the whole family.</p><a href="#article-asda" class="read-more">Read More &rarr;</a></article>
+                        <article class="article-card"><p class="article-card-meta">Local Deals | Quick Buys</p><h3>Co-op's Community Savings</h3><p>Your local Co-op is coming in hot! Don't miss the <a href="https://risij.uk/co-op-offers-this-week" target="_blank">Co-op offers this week</a> for some decent savings.</p><a href="#article-co-op" class="read-more">Read More &rarr;</a></article>
+                        <article class="article-card"><p class="article-card-meta">Bulk Buys | Stock Up</p><h3>Costco: Go Big or Go Home</h3><p>Time to fill the chesterfield... er, the pantry! The latest <a href="https://risij.uk/costco-uk-offers" target="_blank">Costco UK offers</a> are here. We'll show you how to find the best bulk buys.</p><a href="#article-costco" class="read-more">Read More &rarr;</a></article>
+                        <article class="article-card"><p class="article-card-meta">Frozen Favourites | Meal Prep</p><h3>Farmfoods' Frozen Beauties</h3><p>Stock the freezer for less. The <a href="https://risij.uk/farmfoods-offers-this-week" target="_blank">Farmfoods offers this week</a> are too good to pass up, for sure.</p><a href="#article-farmfoods" class="read-more">Read More &rarr;</a></article>
+                        <article class="article-card"><p class="article-card-meta">Top Picks | Smart Shopping</p><h3>Grab Your Toque, We're Goin' to Lidl</h3><p>This week's <a href="https://risij.uk/lidl-offers-this-week" target="_blank">Lidl offers</a> are unreal. We've got the secrets to navigating that famous middle aisle.</p><a href="#article-lidl" class="read-more">Read More &rarr;</a></article>
+                        
+                    </section>
+
+                    <section id="offers" class="page-section">
+                        <h1>All UK Supermarket Offers in One Spot</h1>
+                        <p>You found it! This is the main hub for every weekly deal we're keeping an eye on. Our goal at <a href="https://risij.uk" target="_blank">Risij.uk</a> is to be your go-to for the latest "Offers This Week" from all the big UK supermarkets. Let's get 'er done!</p>
+                        <ul>
+                            <li><a href="https://risij.uk/aldi-offers-next-week" target="_blank">Aldi Offers Next Week</a></li>
+                            <li><a href="https://risij.uk/asda-offers-this-week" target="_blank">Asda Offers This Week</a></li>
+                            <li><a href="https://risij.uk/co-op-offers-this-week" target="_blank">Co-op Offers This Week</a></li>
+                            <li><a href="https://risij.uk/costco-uk-offers" target="_blank">Costco UK Offers</a></li>
+                            <li><a href="https://risij.uk/farmfoods-offers-this-week" target="_blank">Farmfoods Offers This Week</a></li>
+                            <li><a href="https://risij.uk/lidl-offers-this-week" target="_blank">Lidl Offers This Week</a></li>
+                            <li><a href="https://risij.uk/morrisons-offers-this-week" target="_blank">Morrisons Offers This Week</a></li>
+                            <li><a href="https://risij.uk/iceland-offers-this-week" target="_blank">Iceland Offers This Week</a></li>
+                            <li><a href="https://risij.uk/spar-offers-next-week" target="_blank">Spar Offers Next Week</a></li>
+                            <li><a href="https://risij.uk/sainsburys-offer-this-week" target="_blank">Sainsbury's Offer This Week</a></li>
+                            <li><a href="https://risij.uk/tesco-offers-this-week" target="_blank">Tesco Offers This Week</a></li>
+                            <li><a href="https://risij.uk/waitrose-offers-this-week" target="_blank">Waitrose Offers This Week</a></li>
+                        </ul>
+                    </section>
+
+                    <section id="about" class="page-section">
+                        <h1>Aboot Us</h1>
+                        <p>We're just a couple of regular folks who really like a good deal. We got tired of spending too much on groceries, so we started <strong><a href="https://risij.uk" target="_blank">Risij.uk</a></strong>. The goal is simple: make it easy for everyone in the UK to save some cash.</p>
+                        <p>Our team is always hunting for the best deals, from the famous <a href="https://risij.uk/lidl-offers-this-week" target="_blank">Lidl offers</a> to the must-have <a href="https://risij.uk/aldi-offers-next-week" target="_blank">ALDI Specialbuys</a>. We just want to help you keep more of your money, eh? It's the right thing to do.</p>
+                    </section>
+
+                    <section id="contact" class="page-section">
+                        <h1>Give'r a Shout!</h1>
+                        <p>Got a question, a good idea, or did you spot a deal we missed? We'd be happy to hear from ya!</p>
+                        <p>Just get in touch through our main site. Your tips help make this whole thing better for everyone. For anything official, just head to the contact page on <a href="https://risij.uk" target="_blank">Risij.uk</a>. Thanks, bud!</p>
+                    </section>
+
+                    <!-- Individual Article Pages -->
+                    <section id="article-aldi" class="page-section"><article class="article-content"><header class="article-header"><h1>Get Ready: A Guide to ALDI's Deals Next Week</h1></header><h2>The Art of the ALDI Specialbuy</h2><p>Alright, so the secret to winning at ALDI is knowing the <a href="https://risij.uk/aldi-offers-next-week" target="_blank">ALDI offers next week</a> before you even go. Those Specialbuys can be tricky, but if you're prepared, you'll do great. Get the info from <a href="https://risij.uk" target="_blank">Risij.uk</a> and you'll be set.</p><div class="cta-box"><h3>Don't Miss Out!</h3><p>Get the full, updated list of next week's must-haves on our dedicated <a href="https://risij.uk/aldi-offers-next-week" target="_blank">ALDI Offers Next Week</a> page.</p></div></article></section>
+                    <section id="article-asda" class="page-section"><article class="article-content"><header class="article-header"><h1>ASDA Savings Guide</h1></header><h2>Your ASDA Game Plan</h2><p>Ready to save some serious cash at ASDA? Have a look at the <a href="https://risij.uk/asda-offers-this-week" target="_blank">ASDA offers this week</a> to get started!</p></article></section>
+                    <section id="article-co-op" class="page-section"><article class="article-content"><header class="article-header"><h1>Co-op Deals Close to Home</h1></header><h2>Good Deals in Your Neighbourhood</h2><p>Find some pretty good value at your local Co-op with the <a href="https://risij.uk/co-op-offers-this-week" target="_blank">Co-op offers this week</a>.</p></article></section>
+                    <section id="article-costco" class="page-section"><article class="article-content"><header class="article-header"><h1>Costco: Secrets to Buying in Bulk</h1></header><h2>Get More for Your Money</h2><p>The <a href="https://risij.uk/costco-uk-offers" target="_blank">Costco UK offers</a> are your ticket to big savings. We can show you how it's done.</p></article></section>
+                    <section id="article-farmfoods" class="page-section"><article class="article-content"><header class="article-header"><h1>Farmfoods Freezer Fillers</h1></header><h2>Stock Up for the Winter (Or Just Next Week)</h2><p>Don't miss the great value in the <a href="https://risij.uk/farmfoods-offers-this-week" target="_blank">Farmfoods offers this week</a>.</p></article></section>
+                    <section id="article-lidl" class="page-section"><article class="article-content"><header class="article-header"><h1>Lidl Shopping, Mastered</h1></header><h2>That Middle Aisle Isn't So Scary</h2><p>This week's <a href="https://risij.uk/lidl-offers-this-week" target="_blank">Lidl offers</a> are pretty decent. Let's find the best deals together, eh?</p></article></section>
+                    
+                </div>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Top Offers, Eh?</h3>
+                        <ul>
+                            <li><a href="https://risij.uk/aldi-offers-next-week" target="_blank">ALDI's Upcoming Deals</a></li>
+                            <li><a href="https://risij.uk/lidl-offers-this-week" target="_blank">Lidl's Best Buys</a></li>
+                            <li><a href="https://risij.uk/tesco-offers-this-week" target="_blank">Top Tesco Savings</a></li>
+                            <li><a href="https://risij.uk/asda-offers-this-week" target="_blank">ASDA's Great Offers</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3>Popular Posts</h3>
+                        <ul>
+                            <li><a href="#article-lidl">Mastering Lidl</a></li>
+                            <li><a href="#article-aldi">Your ALDI Game Plan</a></li>
+                            <li><a href="https://risij.uk/tesco-offers-this-week" target="_blank">Tesco Savings</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3>So, What's the Point?</h3>
+                        <p>Well, your money matters! Let <a href="https://risij.uk" target="_blank">Risij.uk</a> do the hard work. You just focus on saving your cash. Sound good? We thought so!</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#offers">All Offers</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://risij.uk" target="_blank">Main Risij.uk Site</a></li>
+            </ul>
+            <p>&copy; 2024 Risij.uk – Keep your stick on the ice. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
